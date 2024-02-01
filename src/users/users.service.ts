@@ -83,8 +83,7 @@ export class UsersService {
   }
 
   findOne(id: number) {
-    const user = this.users.find((user) => user.id == id);
-    return user;
+    return this.users.find((user) => user.id == id);
   }
 
   create(user: {
@@ -107,13 +106,12 @@ export class UsersService {
       role?: 'user' | 'admin';
     },
   ) {
-    this.users.map((user) => {
+    this.users = this.users.map((user) => {
       if (user.id == id) {
         return { ...user, ...updatedUser };
       }
       return user;
     });
-    return this.findOne(id);
   }
 
   delete(id: number) {

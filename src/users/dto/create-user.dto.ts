@@ -1,4 +1,11 @@
-import { IsDate, IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import {
+  IsDate,
+  IsEmail,
+  IsEnum,
+  IsISO8601,
+  IsNotEmpty,
+  IsString,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -9,8 +16,8 @@ export class CreateUserDto {
   @IsEmail()
   email: string;
 
-  @IsDate()
   @IsNotEmpty()
+  @IsISO8601({ strict: true })
   birthdate: string;
 
   @IsEnum(['admin', 'user'], {

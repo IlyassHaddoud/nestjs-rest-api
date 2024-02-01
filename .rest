@@ -4,14 +4,17 @@ GET http://localhost:3000/users/
 GET http://localhost:3000/users?role=admin
 
 ###
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/2
 
 ###
 POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
-    "name":"ilyass"
+    "name":"ilyass",
+    "email":"ilyass.haddoud@gmail.com",
+    "birthdate":"2000-11-13",
+    "role":"admin"
 }
 ###
 

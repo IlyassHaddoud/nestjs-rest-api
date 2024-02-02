@@ -4,6 +4,7 @@
 
 # Env
 *.env
+*.rest
 
 # Logs
 logs

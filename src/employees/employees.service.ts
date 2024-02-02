@@ -7,30 +7,30 @@ export class EmployeesService {
   constructor(private readonly databaseService: DatabaseService) {}
 
   async create(createEmployeeDto: Prisma.EmployeeCreateInput) {
-    return await this.databaseService.employee.create({
+    return this.databaseService.employee.create({
       data: createEmployeeDto,
     });
   }
 
   async findAll(role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
     if (role) {
-      return await this.databaseService.employee.findMany({ where: { role } });
+      return this.databaseService.employee.findMany({ where: { role } });
     }
-    return await this.databaseService.employee.findMany();
+    return this.databaseService.employee.findMany();
   }
 
   async findOne(id: number) {
-    return await this.databaseService.employee.findUnique({ where: { id } });
+    return this.databaseService.employee.findUnique({ where: { id } });
   }
 
   async update(id: number, updateEmployeeDto: Prisma.EmployeeUpdateInput) {
-    return await this.databaseService.employee.update({
+    return this.databaseService.employee.update({
       data: updateEmployeeDto,
       where: { id },
     });
   }
 
   async remove(id: number) {
-    return await this.databaseService.employee.delete({ where: { id } });
+    return this.databaseService.employee.delete({ where: { id } });
   }
 }
